@@ -6,9 +6,18 @@ import CartContext from "../../Store/cart-context";
 
 const Cart=(props)=>{
     const cartctx=useContext(CartContext);
+
+    const AddItemHandler=(item)=>{
+        cartctx.addItem({...item,quantity:+1})
+    }
+    const RemoveItemHandler=(id)=>{
+        cartctx.removeItem(id)
+    }
     const cartitems=<ul className={classes["cart-items"]}>{cartctx.items.map((item)=>(
     <li>
         Name:{item.name} Price:{item.price} Quaantity:{item.quantity}
+        <button type='button' className={classes['button--alt']} onClick={RemoveItemHandler}>-</button>
+        <button type='button' className={classes["button"]} onClick={AddItemHandler}>+</button>
     </li>
 ))}
     </ul>

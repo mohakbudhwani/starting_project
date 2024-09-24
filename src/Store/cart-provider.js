@@ -9,7 +9,9 @@ const CartProvider=(props)=>{
         setItems([...items,item])
     }
 
-    const RemoveItemFromCartHandler=(id)=>{}
+    const RemoveItemFromCartHandler=(id)=>{
+        items.pop(id)
+    }
 
     const cartcontext={
         items:items,
